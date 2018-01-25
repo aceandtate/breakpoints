@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "Ace and Tate's Breakpoints",
   "main": "index.js",
+  "private": false,
   "scripts": {
     "generate": "bin/generate",
     "test": "echo \"Error: no test specified\" && exit 1",
