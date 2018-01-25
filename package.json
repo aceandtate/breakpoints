@@ -1,0 +1,33 @@
+{
+  "name": "@aceandtate/breakpoints",
+  "version": "0.0.1",
+  "description": "Ace and Tate's Breakpoints",
+  "main": "index.js",
+  "scripts": {
+    "generate": "bin/generate",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "precommit": "lint-staged",
+    "prepublish": "npm run -s generate"
+  },
+  "lint-staged": {
+    "*.{js,json,md}": ["prettier --write", "git add"]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aceandtate/breakpoints.git"
+  },
+  "keywords": ["breakpoints"],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aceandtate/breakpoints/issues"
+  },
+  "homepage": "https://github.com/aceandtate/breakpoints#readme",
+  "devDependencies": {
+    "eslint": "^4.16.0",
+    "eslint-plugin-prettier": "^2.5.0",
+    "husky": "^0.14.3",
+    "lint-staged": "^6.0.1",
+    "prettier": "1.10.2"
+  }
+}

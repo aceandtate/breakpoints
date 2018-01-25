@@ -1,0 +1,6 @@
+#!/usr/bin/env node
+
+const generate = require("../src");
+const sizes = require("../sizes.json");
+
+generate(sizes);
