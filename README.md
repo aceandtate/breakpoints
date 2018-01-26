@@ -11,7 +11,7 @@ This package exports various forms of breakpoints for use at [Ace &amp; Tate](ht
 ### Sizes
 
 ```js
-import { sizes } from '@aceandtate/breakpoints";
+import { sizes } from "@aceandtate/breakpoints";
 
 /*
 sizes = {
@@ -44,7 +44,7 @@ rules = {
 ### Breakpoints
 
 ```js
-import { breakpoints } from '@aceandtate/breakpoints";
+import { breakpoints } from "@aceandtate/breakpoints";
 
 /*
 breakpoints = {
