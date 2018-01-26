@@ -8,18 +8,19 @@
     "generate": "bin/generate",
     "test": "echo \"Error: no test specified\" && exit 1",
     "precommit": "lint-staged",
-    "prepublish": "npm run -s generate"
+    "prepublishOnly": "npm run -s generate"
   },
   "lint-staged": {
     "*.{js,json,md}": ["prettier --write", "git add"]
   },
+  "files": ["*.js", "build", "LICENSE"],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/aceandtate/breakpoints.git"
   },
   "keywords": ["breakpoints"],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/aceandtate/breakpoints/issues"
   },
