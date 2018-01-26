@@ -1,18 +1,73 @@
 # @aceandtate/breakpoints
 
-Ace &amp; Tate's Breakpoints package
+Ace & Tate's website breakpoints
 
 ## How it works
 
-This package exports various forms of breakpoints for use at Ace & Tate
+This package exports various forms of breakpoints for use at [Ace &amp; Tate](https://www.aceandtate.com)
+
+### Sizes
+
+```js
+import { sizes } from '@aceandtate/breakpoints";
+
+/*
+sizes = {
+  "tiny": 540,
+  "small": 768,
+  "large": 1000,
+  "xlarge": 1400,
+  "xxlarge": null
+}
+*/
+```
 
 ### Rules
 
 ```js
 import { rules } from "@aceandtate/breakpoints";
+
+/*
+rules = {
+  "tiny": "(max-width: 540px)",
+  "tinyMax": "(max-width: 540px)",
+  "small": "(min-width: 541px) and (max-width: 768px)",
+  "smallMin": "(min-width: 541px)",
+  "smallMax": "(max-width: 768px)",
+  ... large, xlarge, xxlarge
+}
+*/
 ```
 
-Exports CSS breakpoint values for various sizes.
+### Breakpoints
+
+```js
+import { breakpoints } from '@aceandtate/breakpoints";
+
+/*
+breakpoints = {
+  "tiny": {
+    "min": 0,
+    "max": 540
+  },
+  "small": {
+    "min": 541,
+    "max": 768
+  },
+  "large": {
+    "min": 769,
+    "max": 1000
+  },
+  "xlarge": {
+    "min": 1001,
+    "max": 1400
+  },
+  "xxlarge": {
+    "min": 1401
+  }
+}
+*/
+```
 
 ## Installation
 
@@ -20,53 +75,39 @@ Exports CSS breakpoint values for various sizes.
 $ npm install --save @aceandtate/breakpoints
 ```
 
-## Usage
-
-### CommonJS
+## Usage with Styled Components
 
 ```js
-import { rules, breakpoints } from "@aceandtate/breakpoints";
-
-// `rules` is a flat Object of key/value pairs
-// `breakpoints` is an object keyed by breakpoint sizes, with min-max pairs
-```
-
-You can also import them individually:
-
-```js
-import sizes from "@aceandtate/rules";
-import breakpoints from "@aceandtate/breakpoints";
-```
-
-### Styled Components
-
-```js
-import { rules, sizes } from '@aceandtate/breakpoints';
+import { tiny, smallMin } from "@aceandtate/breakpoints/rules";
 
 const myComponent = styled.div`
-  @media ${rules.tiny} {
+  @media ${tiny} {
     /* Show on mobile devices */
     width: 100%;
     margin: 10px;
   }
-  @media ${rules.smallMin} {
+  @media ${smallMin} {
     /* Everything else */
     width: 400px;
     margin: 0 auto;
   }
 `;
+```
 
 ## Development
 
 If you want to update or add breakpoints, you can do so in `./sizes.json`, and then run:
-```
 
+```
 $ npm run generate
-
 ```
-This will then update the files in `./build/` file accordingly.
+
+This will then update the files in `./build/` file accordingly. Note that this task is run automatically before publishing the package.
+
+## Shoutouts
+
+* https://github.com/Travix-International/travix-breakpoints
 
 ## License
 
 MIT © [Ace & Tate](https://www.aceandtate.com)
-```
