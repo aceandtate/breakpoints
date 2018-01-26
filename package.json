@@ -1,6 +1,6 @@
 {
   "name": "@aceandtate/breakpoints",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Ace and Tate's Breakpoints",
   "main": "index.js",
   "private": false,
