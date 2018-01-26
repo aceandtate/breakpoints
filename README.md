@@ -1,5 +1,7 @@
 # @aceandtate/breakpoints
 
+[![npm](https://img.shields.io/npm/v/@aceandtate/breakpoints.svg)](https://www.npmjs.com/package/@aceandtate/breakpoints)
+
 Ace & Tate's website breakpoints
 
 ## How it works
