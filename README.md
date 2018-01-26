@@ -4,7 +4,13 @@
 
 Ace & Tate's website breakpoints
 
-## How it works
+## Installation
+
+```
+$ npm install --save @aceandtate/breakpoints
+```
+
+## How does it work
 
 This package exports various forms of breakpoints for use at [Ace &amp; Tate](https://www.aceandtate.com)
 
@@ -71,15 +77,10 @@ breakpoints = {
 */
 ```
 
-## Installation
-
-```
-$ npm install --save @aceandtate/breakpoints
-```
-
 ## Usage with Styled Components
 
 ```js
+import styled from "styled-components";
 import { tiny, smallMin } from "@aceandtate/breakpoints/rules";
 
 const myComponent = styled.div`
@@ -104,7 +105,7 @@ If you want to update or add breakpoints, you can do so in `./sizes.json`, and t
 $ npm run generate
 ```
 
-This will then update the files in `./build/` file accordingly. Note that this task is run automatically before publishing the package.
+This will then update the files in `./build/` file accordingly. Note that this task is run automatically before publishing the package to NPM.
 
 ## Shoutouts
 
