@@ -1,6 +1,6 @@
-const { flatMapKeys, mapBreakpoints, mediaRule } = require("../src/util");
+import { flatMapKeys, mapBreakpoints, mediaRule } from "../util";
 
-module.exports = function build(sizes) {
+export default function build(sizes) {
   const breakpoints = mapBreakpoints(sizes);
   return flatMapKeys(breakpoints, (rule, key) => ({
     [key]: mediaRule(rule),

@@ -1,7 +1,7 @@
-{
+export default {
   "tiny": 540,
   "small": 768,
   "large": 1000,
   "xlarge": 1399,
-  "xxlarge": null
+  "xxlarge": Infinity
 }
