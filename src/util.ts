@@ -1,22 +1,25 @@
-const util = require("util");
-const { writeFileSync } = require("fs");
+type Sizes = {
+  [breakpointName: string]: number;
+}
 
-function flattenObject(a, b) {
+type MapperFn = (value: string, key: string, target: any) => any;
+
+type MinMaxPair = {
+  min?: number;
+  max?: number;
+}
+
+function flattenObject(a: any, b: any) {
   return Object.assign({}, a, b);
 }
 
 // Maps an objects keys, similar to lodash.map collection mapping
-function mapKeys(obj, fn) {
+function mapKeys(obj: any, fn: MapperFn) {
   return Object.keys(obj).map(key => fn(obj[key], key, obj));
 }
 
-// Flattens the result of a mapping the keys of an object
-function flatMapKeys(obj, fn) {
-  return mapKeys(obj, fn).reduce(flattenObject);
-}
-
 // Returns the max and min pair for a size
-function getMinMax(size, prevSize) {
+function getMinMax(size: number, prevSize: number) {
   return {
     min: prevSize ? prevSize + 1 : 0,
     max: size || undefined
@@ -24,7 +27,7 @@ function getMinMax(size, prevSize) {
 }
 
 // Returns an object with keys referencing min - max pairs
-function mapBreakpoints(sizes) {
+export function mapBreakpoints(sizes: Sizes) {
   const sizesKeys = Object.keys(sizes);
   return sizesKeys
     .map((key, i) => {
@@ -38,21 +41,18 @@ function mapBreakpoints(sizes) {
     .reduce(flattenObject);
 }
 
+function isNumber(value?: number) {
+  return typeof value === 'number';
+}
+
 // Converts a min-max pair into a media query style rule
-function mediaRule({ min, max }) {
-  const minRule = min && `(min-width: ${min}px)`;
-  const maxRule = max && max !== Infinity && `(max-width: ${max}px)`;
+export function mediaRule({ min, max }: MinMaxPair) {
+  const minRule = isNumber(min) && `(min-width: ${min}px)`;
+  const maxRule = isNumber(max) && max !== Infinity && `(max-width: ${max}px)`;
   return [minRule, maxRule].filter(Boolean).join(" and ") || undefined;
 }
 
-// Writes an JSON object into a file
-function writeJson(path, obj) {
-  return writeFileSync(path, JSON.stringify(obj, null, 2), "utf8");
+// Flattens the result of a mapping the keys of an object
+export function flatMapKeys(obj: any, fn: MapperFn) {
+  return mapKeys(obj, fn).reduce(flattenObject);
 }
-
-module.exports = {
-  flatMapKeys,
-  mapBreakpoints,
-  mediaRule,
-  writeJson
-};
